@@ -1,3 +1,6 @@
 {
-  "item.triforcetales.greenrupee": "Rupee"
+
+  //CURRENCY
+  "item.triforcetales.greenrupee": "§2Rupee",
+  "item.triforcetales.bluerupee": "§9Blue Rupee"
 }

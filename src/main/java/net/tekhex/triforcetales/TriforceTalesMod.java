@@ -58,6 +58,10 @@ public class TriforceTalesMod
         if (event.getTabKey() == CreativeModeTabs.INGREDIENTS){
             event.accept(ItemInit.GREENRUPEE);
         }
+
+        if (event.getTabKey() == CreativeModeTabs.INGREDIENTS){
+            event.accept(ItemInit.BLUERUPEE);
+        }
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call

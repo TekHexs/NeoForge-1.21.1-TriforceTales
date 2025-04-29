@@ -12,6 +12,9 @@ public class ItemInit {
     public static final DeferredItem<Item> GREENRUPEE = ITEMS.register("greenrupee",
             () -> new Item(new Item.Properties()));
 
+    public static final DeferredItem<Item> BLUERUPEE = ITEMS.register("bluerupee",
+            () -> new Item(new Item.Properties()));
+
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
     }
