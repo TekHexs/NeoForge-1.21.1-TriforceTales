@@ -1,4 +1,4 @@
-package net.TekHex.triforcetalesmod;
+package net.tekhex.triforcetales;
 
 import java.util.List;
 import java.util.Set;
