@@ -1,6 +1,6 @@
-package net.TekHex.triforcetalesmod;
+package net.tekhex.triforcetales;
 
-import net.TekHex.triforcetalesmod.item.ModItems;
+import net.tekhex.triforcetales.registry.ItemInit;
 import net.minecraft.world.item.CreativeModeTabs;
 import org.slf4j.Logger;
 
@@ -38,7 +38,7 @@ public class TriforceTalesMod
         // Do not add this line if there are no @SubscribeEvent-annotated functions in this class, like onServerStarting() below.
         NeoForge.EVENT_BUS.register(this);
 
-        ModItems.register(modEventBus);
+        ItemInit.register(modEventBus);
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
@@ -56,7 +56,7 @@ public class TriforceTalesMod
     private void addCreative(BuildCreativeModeTabContentsEvent event)
     {
         if (event.getTabKey() == CreativeModeTabs.INGREDIENTS){
-            event.accept(ModItems.GREENRUPEE);
+            event.accept(ItemInit.GREENRUPEE);
         }
     }
 
