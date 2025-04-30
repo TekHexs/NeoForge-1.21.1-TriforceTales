@@ -58,12 +58,16 @@ public class TriforceTalesMod
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event)
     {
+
+        //currency items
         if (event.getTabKey() == CreativeModeTabs.INGREDIENTS){
             event.accept(ItemInit.GREENRUPEE);
         }
-
         if (event.getTabKey() == CreativeModeTabs.INGREDIENTS){
             event.accept(ItemInit.BLUERUPEE);
+        }
+        if (event.getTabKey() == CreativeModeTabs.INGREDIENTS){
+            event.accept(ItemInit.REDRUPEE);
         }
     }
 
