@@ -17,6 +17,7 @@ import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
+import net.neoforged.neoforge.event.RegisterCommandsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
 
 // The value here should match an entry in the META-INF/neoforge.mods.toml file
@@ -38,7 +39,9 @@ public class TriforceTalesMod
         // Do not add this line if there are no @SubscribeEvent-annotated functions in this class, like onServerStarting() below.
         NeoForge.EVENT_BUS.register(this);
 
+        // Register item initializer
         ItemInit.register(modEventBus);
+
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
@@ -49,7 +52,7 @@ public class TriforceTalesMod
 
     private void commonSetup(final FMLCommonSetupEvent event)
     {
-
+        LOGGER.info("Triforce Tales mod initializing!");
     }
 
     // Add the example block item to the building blocks tab
@@ -64,11 +67,13 @@ public class TriforceTalesMod
         }
     }
 
+    // Register commands for the rupee system
+
     // You can use SubscribeEvent and let the Event Bus discover methods to call
     @SubscribeEvent
     public void onServerStarting(ServerStartingEvent event)
     {
-
+        LOGGER.info("Triforce Tales server components initializing");
     }
 
     // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
@@ -78,7 +83,7 @@ public class TriforceTalesMod
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event)
         {
-
+            LOGGER.info("Triforce Tales client setup complete");
         }
     }
 }
