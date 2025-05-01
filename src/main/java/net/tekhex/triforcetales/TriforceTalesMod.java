@@ -17,7 +17,6 @@ import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
-import net.neoforged.neoforge.event.RegisterCommandsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
 
 // The value here should match an entry in the META-INF/neoforge.mods.toml file
@@ -35,13 +34,13 @@ public class TriforceTalesMod
         modEventBus.addListener(this::commonSetup);
 
         // Register ourselves for server and other game events we are interested in.
-        // Note that this is necessary if and only if we want *this* class (ExampleMod) to respond directly to events.
-        // Do not add this line if there are no @SubscribeEvent-annotated functions in this class, like onServerStarting() below.
         NeoForge.EVENT_BUS.register(this);
 
         // Register item initializer
         ItemInit.register(modEventBus);
 
+        // Register creative tabs
+        TriforceTalesCreativeTab.register(modEventBus);
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
@@ -55,32 +54,30 @@ public class TriforceTalesMod
         LOGGER.info("Triforce Tales mod initializing!");
     }
 
-    // Add the example block item to the building blocks tab
+    // Add items to creative tabs
     private void addCreative(BuildCreativeModeTabContentsEvent event)
     {
+        // You can still add items to vanilla tabs if you want
+        // But no need since we now have our own tab
 
-        //currency items
+        // Alternatively, you can keep this if you want the rupees to appear in both tabs
         if (event.getTabKey() == CreativeModeTabs.INGREDIENTS){
             event.accept(ItemInit.GREENRUPEE);
-        }
-        if (event.getTabKey() == CreativeModeTabs.INGREDIENTS){
             event.accept(ItemInit.BLUERUPEE);
-        }
-        if (event.getTabKey() == CreativeModeTabs.INGREDIENTS){
             event.accept(ItemInit.REDRUPEE);
+            event.accept(ItemInit.PURPLERUPEE);
+            event.accept(ItemInit.SILVERRUPEE);
+            event.accept(ItemInit.GOLDENRUPEE);
+            event.accept(ItemInit.RUPOOR);
         }
     }
 
-    // Register commands for the rupee system
-
-    // You can use SubscribeEvent and let the Event Bus discover methods to call
     @SubscribeEvent
     public void onServerStarting(ServerStartingEvent event)
     {
         LOGGER.info("Triforce Tales server components initializing");
     }
 
-    // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
     @EventBusSubscriber(modid = MOD_ID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
     public static class ClientModEvents
     {

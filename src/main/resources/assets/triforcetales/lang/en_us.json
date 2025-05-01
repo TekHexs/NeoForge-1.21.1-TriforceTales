@@ -2,5 +2,9 @@
   //CURRENCY
   "item.triforcetales.greenrupee": "§2Rupee",
   "item.triforcetales.bluerupee": "§9Blue Rupee",
-  "item.triforcetales.redrupee": "§cRed Rupee"
+  "item.triforcetales.redrupee": "§cRed Rupee",
+  "item.triforcetales.purplerupee": "§5Purple Rupee",
+  "item.triforcetales.silverrupee": "§7Silver Rupee",
+  "item.triforcetales.goldenrupee": "§6Golden Rupee",
+  "item.triforcetales.rupoor": "§8Rupoor"
 }
